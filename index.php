@@ -40,7 +40,7 @@ require_once 'app/header.php';
             <?php endforeach; ?>
         </div>
         <div class="col-md-3">
-            sidebar
+            <?php include_once 'app/sidebar.php'; ?>
         </div>
     </div>
 </div>
