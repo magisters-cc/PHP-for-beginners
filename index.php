@@ -28,11 +28,11 @@ require_once 'app/header.php';
                     <p>
                       <?=mb_substr($post['content'], 0, 128, 'UTF-8').'...'?>
                     </p>
-                    <p><a class="btn btn-info btn-sm" href="/post.php?post_id=<?=$post['id']?>">Читать полностью</a></p>
+                    <p><a class="btn btn-info btn-sm" href="/post.php?post_id=<?=$post['id']?>">Читать полностью...</a></p>
                     <br/>
                     <ul class="list-inline">
-                        <li><i class="glyphicon glyphicon-list"></i> <a href="#">Название категории</a> | </li>
-                        <li><i class="glyphicon glyphicon-calendar"></i> 14 июля 2016 21:00
+                        <li><i class="glyphicon glyphicon-list"></i> <a href="#">Категория</a> | </li>
+                        <li><i class="glyphicon glyphicon-calendar"></i> 14 Мая 2017 21:00
                     </ul>
                 </div>
             </div>

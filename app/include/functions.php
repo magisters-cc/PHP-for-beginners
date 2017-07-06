@@ -40,3 +40,45 @@ function get_post_by_id($post_id) {
     return $post;
 }
 
+function generate_code($length = 8) {
+    $string = '';
+    $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
+    $num_chars = strlen($chars);
+    
+    for ($i = 0; $i < $length; $i++) {
+        $string .= substr($chars, rand(1, $num_chars) - 1 ,1);
+    }
+    
+    return $string;
+}
+
+function insert_subscriber($link, $email) {
+
+    $email = mysqli_real_escape_string($link, $email);
+    
+    //1. Проверить есть ли подписчик в таблице subscribers
+    $query = "SELECT * FROM subscribers WHERE email = '$email'";
+    
+    $result = mysqli_query($link, $query);
+    
+    if (!mysqli_num_rows($result)) {
+        //2. Если его нет, то создаем подписчика с уникальным кодом (неактивного)
+        $subscriber_code = generate_code();
+        
+        $insert_query = "INSERT INTO subscribers (email, code) VALUES ('$email', '$subscriber_code')";
+        
+        $result = mysqli_query($link, $insert_query);
+        
+        if ($result) {
+            return 'created';
+        } else {
+            return 'fail';
+        }
+        
+    } else {
+        return 'exist';
+    }
+    
+    
+}
+

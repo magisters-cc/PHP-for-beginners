@@ -1,4 +1,4 @@
-<div class="well">
+﻿<div class="well">
     <div class="form-group">
         <form action="/subscribe.php" method="post">
             <h4>Подпишись на новости!</h4>
