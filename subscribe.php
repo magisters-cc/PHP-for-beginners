@@ -6,7 +6,7 @@
         
         $email = trim($_POST['email']);
         
-        $insert_result = insert_subscriber($link, $email);
+        $insert_result = insert_subscriber($email);
         
         $header = 'Location: /?subscribe=';
         $header .= $insert_result;
