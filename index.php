@@ -5,6 +5,16 @@ ini_set('display_errors', 'E_ALL');
 ini_set('display_startup_errors', 'E_ALL');
 
 require_once 'app/header.php';
+
+$IntlDateFormatter = datefmt_create(
+    'ru_RU',
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::FULL,
+    'Europe/Moscow',
+    IntlDateFormatter::GREGORIAN,
+    'd MMMM yyyy, EEEE H:mm'
+);
+
 ?>
 
 <div class="container">
@@ -32,7 +42,8 @@ require_once 'app/header.php';
                     <br/>
                     <ul class="list-inline">
                         <li><i class="glyphicon glyphicon-list"></i> <a href="#">Категория</a> | </li>
-                        <li><i class="glyphicon glyphicon-calendar"></i> 14 Мая 2017 21:00
+                        <li><i class="glyphicon glyphicon-calendar"></i> <?=datefmt_format($IntlDateFormatter, $post['created_at'])?>
+                        <!--<?=date('d/m/Y H:i', $post['created_at'])?>-->
                     </ul>
                 </div>
             </div>

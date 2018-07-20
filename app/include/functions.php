@@ -57,7 +57,7 @@ function insert_subscriber($email) {
     global $link;
     
     $email = mysqli_real_escape_string($link, $email);
-    
+
     //1. Проверить есть ли подписчик в таблице subscribers
     $query = "SELECT * FROM subscribers WHERE email = '$email'";
     
