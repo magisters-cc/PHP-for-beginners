@@ -14,11 +14,11 @@ function get_categories() {
     
 }
 
-function get_posts() {
+function get_posts($limit, $offset) {
     
     global $link;
     
-    $sql = "SELECT * FROM posts";
+    $sql = "SELECT * FROM posts LIMIT $limit OFFSET $offset";
     
     $result = mysqli_query($link, $sql);
     
@@ -42,7 +42,7 @@ function get_post_by_id($post_id) {
 
 function generate_code($length = 8) {
     $string = '';
-    $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
+    $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ1234567890';
     $num_chars = strlen($chars);
     
     for ($i = 0; $i < $length; $i++) {

@@ -22,9 +22,18 @@ $IntlDateFormatter = datefmt_create(
         <div class="col-md-9">
             <div class="page-header">
                 <h1>Все записи:</h1>
+                <select name="page-select" id="page-select" class="form-control pull-right">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
             </div>
+            <hr/>
             <?php
-                $posts = get_posts();
+                $page = isset($_GET['page']) ? $_GET['page']: 1;
+                $limit = 5;
+                $offset = $limit * ($page - 1);
+
+                $posts = get_posts($limit, $offset);
             ?>
             <?php foreach($posts as $post): ?>
             <div class="row">
